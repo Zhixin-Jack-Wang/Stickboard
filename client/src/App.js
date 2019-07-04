@@ -14,7 +14,9 @@ function App() {
   //     });
   // },[])
   React.useEffect(() => {
-    axios.get('https://api.meetup.com/find/groups?zip=11211&radius=1&category=25&order=members')
+    axios.get(`https://secure.meetup.com/oauth2/authorize
+    ?client_id=1htrmcgkah9g2ma74lu773bf8k&response_type=code
+    &https://mymeetups.herokuapp.com/`)
       .then(response => {
         setData(response.data);
         console.log(response);
