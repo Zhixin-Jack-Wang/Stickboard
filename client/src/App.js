@@ -16,13 +16,13 @@ function App() {
   React.useEffect(() => {
     axios.get('https://api.meetup.com/find/groups?zip=11211&radius=1&category=25&order=members')
       .then(response => {
-        setUser(response.data);
+        setData(response.data);
         console.log(response);
       });
   },[])
 
   return (
-    user && (
+    data && (
       <div className="App">
         <header className="App-header">
           {/* <img src={user.user.avatar_url} className="App-logo" alt="logo" />
