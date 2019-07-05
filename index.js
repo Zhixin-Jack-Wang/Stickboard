@@ -36,7 +36,7 @@ app.get('/api', (req,res)=>{
 //             error=>console.log({error:error})
 //         )
 // })
-app.get('/login', (req,res)=>{
+app.get('/', (req,res)=>{
     res.redirect(
         "https://secure.meetup.com/oauth2/authorize?"+
          querystring.stringify({

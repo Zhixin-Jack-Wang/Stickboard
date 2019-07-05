@@ -14,7 +14,7 @@ function App() {
 
   //Event Handler
   const clickHandler = () =>{
-    axios.get('/login').then(
+    axios.get('/').then(
       response=>console.log(response)
     )
   };
