@@ -13,6 +13,12 @@ function App() {
       });
   },[])
 
+  //Event Handler
+  const clickHandler = () =>{
+    axios.get('/login').then(
+      response=>console.log(response)
+    )
+  };
 
   return (
     user && (
@@ -30,6 +36,9 @@ function App() {
           >
             Learn React
           </a>
+          <button onClick={clickHandler}>
+            AuthO
+          </button>
         </header>
       </div>
     )
