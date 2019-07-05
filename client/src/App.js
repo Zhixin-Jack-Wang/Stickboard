@@ -4,35 +4,23 @@ import './App.css';
 import axios from 'axios';
 
 function App() {
-  // const [user, setUser] = React.useState(null);
-     const [data, setData] = React.useState(null);
+  const [user, setUser] = React.useState(null);
 
-  // React.useEffect(() => {
-  //   axios.get('/api?user=Zhixin-Jack-Wang')
-  //     .then(response => {
-  //       setUser(response.data);
-  //     });
-  // },[])
   React.useEffect(() => {
-    axios.get(`https://secure.meetup.com/oauth2/authorize
-    ?client_id=1htrmcgkah9g2ma74lu773bf8k&response_type=code
-    &https://mymeetups.herokuapp.com/`)
+    axios.get('/api?user=Zhixin-Jack-Wang')
       .then(response => {
-        setData(response.data);
-        console.log(response);
+        setUser(response.data);
       });
   },[])
+
 
   return (
     data && (
       <div className="App">
         <header className="App-header">
-          {/* <img src={user.user.avatar_url} className="App-logo" alt="logo" />
+          <img src={user.user.avatar_url} className="App-logo" alt="logo" />
           <p>
             {user.user.login}
-          </p> */}
-          <p>
-            {data}
           </p>
           <a
             className="App-link"
