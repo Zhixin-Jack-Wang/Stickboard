@@ -20,21 +20,30 @@ app.get('/api', (req,res)=>{
         })
 })
 
+// app.get('/login', (req,res)=>{
+//     axios
+//         .get(
+//         "https://secure.meetup.com/oauth2/authorize?"+
+//          querystring.stringify({
+//             client_id:YOUR_CONSUMER_KEY,
+//             redirect_uri:YOUR_CONSUMER_REDIRECT_URI,
+//             response_type:"token"
+//          }))
+//         .then(
+//             response=>console.log({response:response})
+//         )
+//         .catch(
+//             error=>console.log({error:error})
+//         )
+// })
 app.get('/login', (req,res)=>{
-    axios
-        .get(
+    res.redirect(
         "https://secure.meetup.com/oauth2/authorize?"+
          querystring.stringify({
             client_id:YOUR_CONSUMER_KEY,
+            response_type:"token",
             redirect_uri:YOUR_CONSUMER_REDIRECT_URI,
-            response_type:"anonymous_code"
          }))
-        .then(
-            response=>console.log({response:response})
-        )
-        .catch(
-            error=>console.log({error:error})
-        )
 })
 
 
