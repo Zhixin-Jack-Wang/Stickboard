@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 
 function App() {
-  // const [user, setUser] = React.useState(null);
+  const [user, setUser] = React.useState(null);
 
   // React.useEffect(() => {
   //   axios.get('/api?user=Zhixin-Jack-Wang')
@@ -11,6 +11,14 @@ function App() {
   //       setUser(response.data);
   //     });
   // },[])
+
+    React.useEffect(() => {
+    axios.get('/login')
+      .then(response => {
+        setUser(response.data);
+      });
+  },[])
+
 
   //Event Handler
   const clickHandler = () =>{
