@@ -15,7 +15,7 @@ function App() {
 
 
   return (
-    data && (
+    user && (
       <div className="App">
         <header className="App-header">
           <img src={user.user.avatar_url} className="App-logo" alt="logo" />
