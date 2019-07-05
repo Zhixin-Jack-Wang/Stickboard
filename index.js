@@ -12,13 +12,13 @@ const YOUR_CONSUMER_REDIRECT_URI = "https://mymeetups.herokuapp.com/";
 app.use(cors());
 app.use(express.json());
 
-app.get('/api', (req,res)=>{
-    const user = req.query.user || "Zhixin-Jack-wang";
-    axios.get(`https://api.github.com/users/${user}`)
-        .then(response => {
-            res.json({ user:response.data})
-        })
-})
+// app.get('/api', (req,res)=>{
+//     const user = req.query.user || "Zhixin-Jack-wang";
+//     axios.get(`https://api.github.com/users/${user}`)
+//         .then(response => {
+//             res.json({ user:response.data})
+//         })
+// })
 
 // app.get('/login', (req,res)=>{
 //     axios
@@ -36,7 +36,8 @@ app.get('/api', (req,res)=>{
 //             error=>console.log({error:error})
 //         )
 // })
-app.get('/', (req,res)=>{
+app.get('/login', (req,res)=>{
+    console.log("here");
     res.redirect(
         "https://secure.meetup.com/oauth2/authorize?"+
          querystring.stringify({

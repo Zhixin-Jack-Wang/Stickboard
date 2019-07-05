@@ -3,30 +3,30 @@ import './App.css';
 import axios from 'axios';
 
 function App() {
-  const [user, setUser] = React.useState(null);
+  // const [user, setUser] = React.useState(null);
 
-  React.useEffect(() => {
-    axios.get('/api?user=Zhixin-Jack-Wang')
-      .then(response => {
-        setUser(response.data);
-      });
-  },[])
+  // React.useEffect(() => {
+  //   axios.get('/api?user=Zhixin-Jack-Wang')
+  //     .then(response => {
+  //       setUser(response.data);
+  //     });
+  // },[])
 
   //Event Handler
   const clickHandler = () =>{
-    axios.get('/').then(
+    axios.get('/login').then(
       response=>console.log(response)
     )
   };
 
   return (
-    user && (
+    // user && (
       <div className="App">
         <header className="App-header">
-          <img src={user.user.avatar_url} className="App-logo" alt="logo" />
+          {/* <img src={user.user.avatar_url} className="App-logo" alt="logo" />
           <p>
             {user.user.login}
-          </p>
+          </p> */}
           <a
             className="App-link"
             href="https://reactjs.org"
@@ -41,7 +41,7 @@ function App() {
         </header>
       </div>
     )
-  )
+  // )
 }
 
 export default App;
