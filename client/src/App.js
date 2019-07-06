@@ -13,7 +13,7 @@ function App() {
   // },[])
 
     React.useEffect(() => {
-    axios.get('/login')
+    axios.get('/auth')
       .then(response => {
         setUser(response.data);
       });

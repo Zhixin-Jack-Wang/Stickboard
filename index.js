@@ -5,8 +5,8 @@ const querystring = require("querystring");
 
 const app = express();
 
-const YOUR_CONSUMER_KEY = "1htrmcgkah9g2ma74lu773bf8k";
-const YOUR_CONSUMER_SECRET = "4vdiq4m8ukhg0phk3a4asek5rq";
+const YOUR_CONSUMER_KEY = "ebiiqiv23vk46cm62g40ce8lqk";
+const YOUR_CONSUMER_SECRET = "ffb026bgdek54na6simhg0ifb2";
 const YOUR_CONSUMER_REDIRECT_URI = "https://mymeetups.herokuapp.com/";
 
 app.use(cors());
@@ -36,18 +36,16 @@ app.use(express.json());
 //             error=>console.log({error:error})
 //         )
 // })
-app.get('/login', (req,res)=>{
+app.get('/auth', (req,res)=>{
     console.log("here");
     res.redirect(
         "https://secure.meetup.com/oauth2/authorize?"+
          querystring.stringify({
             client_id:YOUR_CONSUMER_KEY,
-            response_type:"token",
             redirect_uri:YOUR_CONSUMER_REDIRECT_URI,
+            response_type:anonymous_code
          }))
 })
-
-
 
 if(process.env.NODE_ENV === "production"){
     app.use(express.static('client/build'));
