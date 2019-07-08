@@ -7,13 +7,14 @@ import styled from "styled-components";
 import EventDetails from './EventDetails';
 
 
-export default class CardList extends Component {
+export default class Posts extends Component {
 
-    pinHandler = () => {
-       const body = {...this.props};
-       console.log(body);
-       axios.put("http://localhost:5000/pin",body)
-        .then(response=>console.log(response))
+    unpinHandler = () => {
+       axios.put("http://localhost:5000/pin/unpin",{id:this.props.id})
+        .then(response=>{
+            console.log(response);
+            this.props.refresh();
+        })
         .catch(error=>console.log(error))
     }
 
@@ -50,7 +51,7 @@ export default class CardList extends Component {
                 {/* <Card.Link href="#">Card Link</Card.Link> */}
                 <EventDetails name={name} description={description}/>
                 <Card.Link href={event_url} target="_blank">Event Page</Card.Link>
-                <Button onClick={this.pinHandler}>Pin It</Button>
+                <Button onClick={this.unpinHandler}>Unpin It</Button>
             </Card.Body>
             </Card>
         )
