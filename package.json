@@ -24,6 +24,7 @@
     "react-bootstrap": "^1.0.0-beta.9",
     "react-html-parser": "^2.0.2",
     "react-icons": "^3.7.0",
+    "react-loader-spinner": "^2.3.0",
     "react-router-dom": "^5.0.1",
     "styled-components": "^4.3.2"
   }

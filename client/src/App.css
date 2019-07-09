@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Cinzel|Play&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Butcherman&display=swap');
 :root {
-  --mainBlue: #2a2a72;
+  --mainBlue: #5F73BC;
   --lightBlue: #009ffd;
   --mainWhite: #f3f3f3;
+  --mainGrey:#E5E5E5;
   --mainDark: #232528;
   --mainDark: #000;
   --mainYellow: #DB9B6D;
@@ -12,4 +14,11 @@
   --fontLobster:'Lobster', cursive;
   --fontCinzel:'Cinzel', serif;
   --fontIF:'Indie Flower', cursive;
+  --fontBM:'Butcherman', cursive;
+}
+
+body {
+  font-family: "Oswald", sans-serif !important;
+  background: var(--mainGrey) !important;
+  color: var(--mainDark) !important;
 }

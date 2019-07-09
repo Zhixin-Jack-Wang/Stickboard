@@ -21,11 +21,12 @@ router.get('/', function(req, res) {
 
 
 // pin meetup
-router.put('/',({body:{name,date,venue,description,photo_url,event_url,id}},res)=>{
+router.put('/',({body:{name,time,venue,how_to_find_us,description,photo_url,event_url,id}},res)=>{
     const newPost = new Post({
         name,
-        date,
+        time,
         venue,
+        how_to_find_us,
         description,
         photo_url,
         event_url,

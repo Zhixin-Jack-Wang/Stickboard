@@ -2,12 +2,15 @@
 import React,{Component} from 'react';
 import axios from 'axios';
 import { GiBoatFishing } from "react-icons/gi";
-import {ListGroup,ListGroupItem,Card,Button} from 'react-bootstrap';
+import {ListGroup,ListGroupItem,Card,Button,ButtonToolbar,OverlayTrigger,Popover} from 'react-bootstrap';
 import styled from "styled-components";
 import EventDetails from './EventDetails';
 
 
 export default class Posts extends Component {
+    state={
+        showModal:false,
+    }
 
     unpinHandler = () => {
        axios.put("http://localhost:5000/pin/unpin",{id:this.props.id})
@@ -32,28 +35,105 @@ export default class Posts extends Component {
         return newDate;
       }
     render(){
-        console.log({props:this.props});
         const {name,time,venue,how_to_find_us,description,photo_url,event_url} = this.props;
         return(
-            <Card style={{ width: '30rem' }}>
-            <Card.Img variant="top" src={photo_url?photo_url:"https://i.imgur.com/9vwYguH.jpg"} />
-            <Card.Body>
-                <Card.Title>{name}</Card.Title>
-                {/* <Card.Text>
-                </Card.Text> */}
-            </Card.Body>
-            <ListGroup className="list-group-flush">
-                <ListGroupItem>Date: {this.convertDate(time)}</ListGroupItem>
-                <ListGroupItem>Venue: {venue?venue.address_1+venue.address_2:"not provided"}</ListGroupItem>
-                <ListGroupItem>how to find : {how_to_find_us?how_to_find_us:"not provided"}</ListGroupItem>
-            </ListGroup>
-            <Card.Body>
-                {/* <Card.Link href="#">Card Link</Card.Link> */}
-                <EventDetails name={name} description={description}/>
-                <Card.Link href={event_url} target="_blank">Event Page</Card.Link>
-                <Button onClick={this.unpinHandler}>Unpin It</Button>
-            </Card.Body>
+            <DivWrapper>
+                <img onClick={this.unpinHandler} className="pin" src="https://i.imgur.com/P8futcQ.png"/>
+                <Card style={{ width: '25rem' }} className="transparent card">
+
+                
+                <Card.Link href={event_url} target="_blank">
+                    <Card.Img variant="top" className = "card-image" src={photo_url?photo_url:"https://i.imgur.com/9vwYguH.jpg"} />
+                </Card.Link>
+                <Card.Body>
+                    <Card.Title className="title" ><EventDetails name={name} description={description} lgOpen={this.state.showModal}/></Card.Title>
+                    {/* <Card.Text>
+                    </Card.Text> */}
+                </Card.Body>
+                <ListGroup className="list-group-flush">
+                    <ListGroupItem className="transparent">Date: {this.convertDate(time)}</ListGroupItem>
+                    <ListGroupItem className="transparent venue" id="venue">
+                        Venue: {venue?venue.address_1+(venue.address_2?venue.address_2:""):"not provided"}
+                        <ButtonToolbar>
+                            <OverlayTrigger
+                                trigger="click"
+                                key={"right"}
+                                placement={"right"}
+                                overlay={
+                                    <Popover
+                                    id={`popover-positioned-right`}
+                                    title={`Direction`}
+                                    >
+                                    {how_to_find_us?how_to_find_us:"not provided"}
+                                    </Popover>
+                                }
+                                >
+                                <span className="direction">how to find?</span>
+                            </OverlayTrigger>
+                        </ButtonToolbar>
+                    </ListGroupItem>
+                </ListGroup>
             </Card>
+            </DivWrapper>
         )
     }
 }
+
+const DivWrapper = styled.div`
+    position:relative;
+    display:flex;
+    justify-content:center;
+    width:30rem;
+    margin-top:2rem;
+    margin-bottom:2rem;
+    margin-left:2rem;
+    padding-bottom:2rem;
+    background-image: url("https://i.imgur.com/vdkT6Hy.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    .transparent{
+        background-color:rgba(0, 0, 0, 0);
+        border:none;
+    }
+    .pin{
+        position:absolute;
+        width:3rem;
+        top:0.1rem;;
+        z-index:1;
+        cursor:pointer;
+    }
+    .card-image{
+        max-height:15.625‬rem;
+    }
+    .card-body{
+        padding-bottom:0;
+        margin-bottom:0;
+    }
+    .card{
+        margin-top:3rem;
+        margin-left:1.5rem;
+        border:none;
+        -webkit-transform: rotate(-3deg);
+        -moz-transform: rotate(-3deg);
+        -o-transform: rotate(-3deg);
+        -ms-transform: rotate(-3deg);
+        transform: rotate(-3deg);
+        height:auto;
+        .title{
+
+            cursor:pointer;
+        }
+        .venue{
+            display:flex;
+            justify-content:space-between;
+            .direction{
+                color:blue;
+                font-weight:bold;
+                cursor:pointer;
+            }
+        }
+    }
+
+`;
+
+

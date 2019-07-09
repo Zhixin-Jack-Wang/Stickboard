@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
-import Addnew from './Addnew';
 import styled from "styled-components";
 import Axios from 'axios';
 import Posts from './Posts';
+import CardList from './CardList';
 export default class Board extends Component {
     state = {
         meetupArr:[]
@@ -22,7 +22,7 @@ export default class Board extends Component {
     }
 
     componentDidMount = () =>{
-        console.log("mount");
+        console.log("mount");   
         Axios.get("http://localhost:5000/pin")
             .then(
                 response=>{
@@ -41,7 +41,15 @@ export default class Board extends Component {
         return (
             <>
             <SectionWrapper>
-                {this.state.meetupArr.map(e=><Posts {...e} refresh = {this.refresh} />)}
+                {this.state.meetupArr.map(e=>{
+                    return(
+                        <>
+                        <Posts {...e} refresh = {this.refresh} />
+                        {/* <CardList {...e}/> */}
+                        </>
+                    )
+                }
+            )}
             </SectionWrapper>
             </>
         )
@@ -53,6 +61,7 @@ const SectionWrapper = styled.section`
     flex-flow: row wrap;
     justify-content:space-evenly;
     position: relative;
+    margin: 0 2rem 2rem 2rem;
     background-image: url("https://i.imgur.com/RmPTNG3.jpg");
     background-position:cover;
     background-repeat:repeat;
