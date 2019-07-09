@@ -15,7 +15,7 @@ export default class Board extends Component {
         const term = this.bar.value;
         this.setState({isLoading:true,meetupArr:[]});
         axios
-            .post("http://localhost:5000/meetups",{term})
+            .post("/meetups",{term})
             .then(
                 response=>{
                     console.log(response);

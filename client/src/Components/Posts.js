@@ -13,7 +13,7 @@ export default class Posts extends Component {
     }
 
     unpinHandler = () => {
-       axios.put("http://localhost:5000/pin/unpin",{id:this.props.id})
+       axios.put("pin/unpin",{id:this.props.id})
         .then(response=>{
             console.log(response);
             this.props.refresh();

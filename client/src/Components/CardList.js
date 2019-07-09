@@ -12,7 +12,7 @@ export default class CardList extends Component {
     pinHandler = () => {
        const body = {...this.props};
        console.log(body);
-       axios.put("http://localhost:5000/pin",body)
+       axios.put("/pin",body)
         .then(response=>console.log(response))
         .catch(error=>console.log(error))
     }

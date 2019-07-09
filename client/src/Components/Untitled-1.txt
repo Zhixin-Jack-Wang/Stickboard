@@ -1,0 +1,24 @@
+ { utc_offset: -14400000,
+       venue: [Object],
+       headcount: 0,
+       distance: 3.5360474586486816,
+       visibility: 'public',
+       waitlist_count: 0,
+       created: 1514488141000,
+       maybe_rsvp_count: 0,
+       description:
+        '<p><img src="http://photos1.meetupstatic.com/photos/event/c/2/3/0/event_148729712.jpeg" /></p> <p><a href="https://www.youtube.com/watch?v=45RVv7qv3Ow" class="embedded">https://www.youtube.com/watch?v=45RVv7qv3Ow</a></p> <p>Learn conversational English from the movies with us! Each Friday we watch a movie and discuss vocabulary, idioms and issues with a native English speaker who has over 26 years of teaching experience.</p> <p>Only $8 per class or $12 for two classes!</p> <p>Fridays 7 PM. Near Yonge &amp; Finch, 2 blocks north of North York Centre subway station.</p> <p><a href="http://www.CanadianAcademicSuccess.com" class="linkified">http://www.CanadianAcademicSuccess.com</a></p>',
+       how_to_find_us:
+        'On the west side of Yonge, walk north from North York Centre station. The Canadian Academic Success School is above Dakgoggi, across from St Louis Grill. Parking is available on Yonge St. or at the rear of the building off Canterbury Place.',
+       event_url:
+        'https://www.meetup.com/Toronto-Language-Culture-Exchange-TLCX/events/262568524/',
+       yes_rsvp_count: 7,
+       duration: 10800000,
+       name: 'Learn English Through Movies',
+       id: 'jxvjdpyzkbqb',
+       photo_url:
+        'https://secure.meetupstatic.com/photos/event/5/6/5/7/global_467182103.jpeg',
+       time: 1562972400000,
+       updated: 1514488141000,
+       group: [Object],
+       status: 'upcoming' }

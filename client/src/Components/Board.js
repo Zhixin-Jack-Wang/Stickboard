@@ -9,7 +9,7 @@ export default class Board extends Component {
     }
 
     refresh = () => {
-        Axios.get("http://localhost:5000/pin")
+        Axios.get("/pin")
         .then(
             response=>{
                 console.log(response);
@@ -23,7 +23,7 @@ export default class Board extends Component {
 
     componentDidMount = () =>{
         console.log("mount");   
-        Axios.get("http://localhost:5000/pin")
+        Axios.get("/pin")
             .then(
                 response=>{
                     console.log(response);

@@ -14,3 +14,4 @@ const PostSchema = new mongoose.Schema({
 const Post = mongoose.model('Board', PostSchema);
 
 module.exports = Post;
+
