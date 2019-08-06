@@ -24,6 +24,7 @@ export default class Board extends Component {
             )
     }
 
+
     renderLoader = () => {
         if(this.state.isLoading)
             return(
